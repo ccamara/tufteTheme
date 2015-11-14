@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+<article>
+{{ partial "header.html" . }}
+<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+<p class="subtitle">{{ .Date.Format "Jan 2, 2006 " }}</p>
+<section>
+  <p>
+  {{ .Content }}
+  </p>
+</section>
+<section>
+{{ if .Prev }}
+  <a href="{{.Prev.Permalink}}"> Prev</a> {{ end }} {{ if .Next }}
+  <a href="{{.Next.Permalink}}"> Next</a> {{ end }}
+</section>
+</article>
+  <script src="{{ .Site.BaseURL }}/js/slim.js"></script>
+  {{ with .Site.Params.AnalyticsID }}{{ partial "analytics.html" . }}{{ end }}
+
+</body>
+
+</html>

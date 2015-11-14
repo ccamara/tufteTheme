@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+  <article>
+    {{ partial "header.html" . }}
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }} {{ range $paginator.Pages }}
+    <section>
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <p class="subtitle">{{ .Date.Format "Jan 2, 2006" }}</p>
+      {{ if .Params.tags }}
+      <p>
+       {{ range .Params.tags }}
+       #<a href="/tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
+       {{ end }}
+     </p>
+     {{ end }}
+     {{ if .Site.Params.Summary }}
+     <p>
+      {{ .Summary }}
+      <a href="{{.RelPermalink}}">&hellip;</a>
+    </p>
+    {{ else if .Site.Params.Content }}
+    <p>
+      {{ .Content }}
+    </p>
+    {{ end }}
+  </section>
+  {{ end }}
+
+
+  {{ partial "pagination.html" . }}
+</article>
+<script src="{{ .Site.BaseURL }}js/slim.js"></script>
+{{ with .Site.Params.AnalyticsID }}{{ partial "analytics.html" . }}{{ end }}
+
+</body>
+
+</html>
