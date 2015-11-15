@@ -13,31 +13,27 @@
 
     <li><article class="hentry">
       <header> 
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2> 
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a> - {{ .Date.Format "Jan 2, 2006" }}</h2> 
       </header>
-      <footer class="post-info">
-        <abbr class="published" title="{{ .Date.Format "Jan 2, 2006" }}"> {{ .Date.Format "Jan 2, 2006" }} </abbr>
-        {{ if .Params.tags }}
-          <ul>
-         {{ range .Params.tags }}
-         <li>#<a href="/tags/{{ . | urlize }}">{{ . }}</a>&nbsp;</li>
-         {{ end }}
-         </ul>
-
-        {{ end }}
-      </footer><!-- /.post-info -->
       <div class="entry-content"> 
-      <section>
         {{ if .Site.Params.Summary }}
         {{ .Summary }}
         <a class="read-more" href="{{.RelPermalink}}">&hellip;</a>
         {{ else if .Site.Params.Content }}
         {{ .Content }}
         {{ end }}
-      </section>
+
       </div><!-- /.entry-content -->
-    </article>
-    </li>
+
+      <footer class="post-info">
+      {{ if .Params.tags }}
+         {{ range .Params.tags }}
+         #<a href="/tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
+         {{ end }}
+        {{ end }}
+      </footer><!-- /.post-info -->
+
+    </article></li>
     {{ end }}
   </ul><!-- /#posts-list -->
   {{ partial "pagination.html" . }}

@@ -3,11 +3,13 @@
   <nav>
       {{ range .Site.Menus.main }}
         <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        &nbsp;&nbsp;
       {{end}} 
-      <li>&ac;</li>
       {{ with .Site.Params.GithubID }}
       <li><a href="https://github.com/{{.}}">Github</a></li>{{ end }} {{ with .Site.Params.TwitterID }}
+      &nbsp;&nbsp;
       <li><a href="https://twitter.com/{{.}}">Twitter</a></li>{{ end }} {{ with .Site.Params.LinkedInID }}
+      &nbsp;&nbsp;
       <li><a href="http://linkedin.com/in/{{.}}">LinkedIn</a></li>{{ end }}
    </nav>
  </header>
