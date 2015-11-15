@@ -4,18 +4,16 @@
 name = "tufteTheme"
 license = "MIT"
 licenselink = "https://github.com/mseshachalam/tufte/blob/master/LICENSE.md"
-description = "An elegant open source and mobile first theme"
-homepage = "http://siteforthistheme.com/"
-tags = ["", ""]
-features = ["", ""]
+description = "An open source hugo theme"
+homepage = "https://github.com/mseshachalam/tufteTheme"
+tags = ["tufte-css"]
 min_version = 0.14
 
 [author]
   name = "mseshachalam"
-  homepage = ""
+  homepage = "https://twitter.com/seshnsesh"
 
 # If porting an existing theme
 [original]
-  name = "spf13"
-  homepage = "http://spf13.com/"
-  repo = "https://github.com/spf13/hyde"
+  name = "mandaris"
+  repo = "https://github.com/mandaris/TuftePelican"

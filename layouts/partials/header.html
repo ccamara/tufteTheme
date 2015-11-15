@@ -1,23 +1,14 @@
-<section>
-<div class="header">
+<header>
   <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
-  <p class="subtitle">{{ .Site.Params.Subtitle }}</p>
-  <div class="nav">
-    <a class="nav-btn" href="#">
-      <span class="ci ci-burger"></span>
-    </a>
-    <ul class="nav-list">
+  <nav>
       {{ range .Site.Menus.main }}
-      <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
       {{end}} 
-    <li class="spacer">&ac;</li>
-{{ with .Site.Params.GithubID }}
+      <li>&ac;</li>
+      {{ with .Site.Params.GithubID }}
       <li><a href="https://github.com/{{.}}">Github</a></li>{{ end }} {{ with .Site.Params.TwitterID }}
       <li><a href="https://twitter.com/{{.}}">Twitter</a></li>{{ end }} {{ with .Site.Params.LinkedInID }}
       <li><a href="http://linkedin.com/in/{{.}}">LinkedIn</a></li>{{ end }}
-    </ul>
-  </div>
-
-</div>
-
-</section>
+   </nav>
+ </header>
+<hr />
